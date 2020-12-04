@@ -1,0 +1,36 @@
+{
+    "data": [
+        {
+            "key": 0,
+            "name": "mock_task0",
+            "description": "mock_description",
+            "startDate": "2020-11-30T12:00:00",
+            "ddl": "2020-12-30T12:00:00",
+            "state": "doing"
+        },
+        {
+            "key": 1,
+            "name": "mock_task1",
+            "description": "mock_description",
+            "startDate": "2020-11-30T12:00:00",
+            "ddl": "2020-12-30T12:00:00",
+            "state": "finish"
+        },
+        {
+            "key": 2,
+            "name": "mock_task2",
+            "description": "mock_description",
+            "startDate": "2020-11-30T12:00:00",
+            "ddl": "2020-12-30T12:00:00",
+            "state": "failed"
+        },
+        {
+            "key": 3,
+            "name": "mock_task3",
+            "description": "mock_description",
+            "startDate": "2020-11-30T12:00:00",
+            "ddl": "2020-12-30T12:00:00",
+            "state": "auditing"
+        }
+    ]
+}

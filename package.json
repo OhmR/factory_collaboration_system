@@ -1,0 +1,20 @@
+{
+  "name": "cells_web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "run": "next build & next start"
+  },
+  "dependencies": {
+    "@antv/g2": "^4.0.15",
+    "antd": "^4.6.4",
+    "next": "9.5.3",
+    "next-service": "^0.3.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1"
+  },
+  "proxy": "http://localhost:3000"
+}
