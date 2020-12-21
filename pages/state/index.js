@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { Card, Descriptions, Avatar, Rate } from 'antd';
 import { Chart } from "@antv/g2";
 import StateChart from './StateChart';
+import Layout from "../../components/Layout"
 
 const { Item } = Descriptions;
 
@@ -54,29 +55,31 @@ export default function FactoryState() {
     // }, [state]);
 
     return (
-        <Card>
-            <Descriptions layout="vertical" column={1} style={{ textAlign: "center" }}>
-                {console.info(state)}
-                <Item style={{ paddingBottom: 8 }}>
-                    <Avatar size={90} icon={<UserOutlined />} />
-                </Item>
-                <Item style={{ paddingBottom: 8 }}>
-                    <div style={{ fontSize: 23 }}>{state.name}</div>
-                </Item>
-                <Item style={{ paddingBottom: 8 }}>
-                    <div>{state.description}</div>
-                </Item>
-                <Item style={{ paddingBottom: 8 }}>
-                    <div>Member since: {new Date(state.joinDate).toDateString()}</div>
-                </Item>
-                {state.credit ?
-                    <Item>
-                        {console.info("credit is ", state.credit)}
-                        <Rate disabled allowHalf defaultValue={state.credit} />
-                    </Item> : null}
-            </Descriptions>
-            <div style={{ textAlign: "center", paddingLeft: "10%", paddingRight: "10%" }} id="container" />
-            <StateChart data={state.audit}></StateChart>
-        </Card >
+        <Layout content={
+            <Card>
+                <Descriptions layout="vertical" column={1} style={{ textAlign: "center" }}>
+                    {console.info(state)}
+                    <Item style={{ paddingBottom: 8 }}>
+                        <Avatar size={90} src="./avatar.jpg" />
+                    </Item>
+                    <Item style={{ paddingBottom: 8 }}>
+                        <div style={{ fontSize: 23 }}>{state.name}</div>
+                    </Item>
+                    <Item style={{ paddingBottom: 8 }}>
+                        <div>{state.description}</div>
+                    </Item>
+                    <Item style={{ paddingBottom: 8 }}>
+                        <div>Member since: {new Date(state.joinDate).toDateString()}</div>
+                    </Item>
+                    {state.credit ?
+                        <Item>
+                            {console.info("credit is ", state.credit)}
+                            <Rate disabled allowHalf defaultValue={state.credit} />
+                        </Item> : null}
+                </Descriptions>
+                <div style={{ textAlign: "center", paddingLeft: "10%", paddingRight: "10%" }} id="container" />
+                <StateChart data={state.audit}></StateChart>
+            </Card >
+        } />
     );
 }

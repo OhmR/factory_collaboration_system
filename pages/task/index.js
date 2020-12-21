@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import TaskList from './components/TaskList';
+import Layout from "../../components/Layout"
 
 const Task = () => {
     const [tasks, setTasks] = useState([]);
@@ -15,9 +16,9 @@ const Task = () => {
     }, []);
 
     return (
-        <>
+        <Layout content={
             <TaskList data={tasks} />
-        </>
+        } />
     );
 }
 
