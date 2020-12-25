@@ -1,0 +1,64 @@
+{
+  "data":{
+    "name": "Order:1",
+    "Product": [{ "name": "桌子", "value": 2 }],
+    "percentage": "6%",
+    "children": [
+      {
+        "name": "桌子",
+        "num": 2,
+        "percentage": 0,
+        "children": [
+          {
+            "name": "上漆",
+            "num": 2,
+            "percentage": 0,
+            "children": [
+              {
+                "name": "组装",
+                "num": 2,
+                "percentage": 0,
+                "children": [
+                  {
+                    "name": "桌子面",
+                    "num": 2,
+                    "children": [],
+                    "subTask": [
+                      {
+                        "FactoryId": 1,
+                        "num": 1,
+                        "process": "40%"
+                      },
+                      {
+                        "FactoryId": 2,
+                        "num": 1,
+                        "process": "20%"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "桌子腿",
+                    "num": "8",
+                    "children": [],
+                    "subTask": [
+                      {
+                        "FactoryId": 3,
+                        "num": 4,
+                        "process": "60%"
+                      },
+                      {
+                        "FactoryId": 4,
+                        "num": 4,
+                        "process": "0%"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
