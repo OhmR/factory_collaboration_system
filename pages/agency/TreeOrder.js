@@ -71,13 +71,13 @@ export default function Chart() {
         trigger: 'item',
         triggerOn: 'mousemove',
         formatter: function (params) {
-          data = params.data
-          if (data.name === "Order:1")
+          console.log(params.data.children)
+          if (params.data.name === "Order:1")
             return "Product：桌子*2<br>进度：6%"
           // if(params.data.children.length===0)
           //   return "无前驱任务，已经分配"+"<br>"+"当前进度：30%"
           let output = "preTask:<br>"
-          for (let i = 0; i < data.children.length; i++) {
+          for (let i = 0; i < params.data.children.length; i++) {
             output += data.children[i].name + "*" + data.children[i].num + "<br>"
           }
           if (data.percentage === 0)
