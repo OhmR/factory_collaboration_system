@@ -1,13 +1,11 @@
 // import '../styles/globals.css'
+// import '@ant-design/pro-form/dist/form.css';
 import "antd/dist/antd.css"
-import Layout from "../components/Layout"
 
 function MyApp({ Component, pageProps }) {
   return (
     <div>
-      <Layout content={
-        <Component {...pageProps} />
-      } />
+      <Component {...pageProps} />
     </div>
   );
 }

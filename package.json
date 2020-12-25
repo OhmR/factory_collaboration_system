@@ -9,13 +9,19 @@
     "run": "next build & next start"
   },
   "dependencies": {
+    "@ant-design/pro-form": "^1.10.4",
     "@antv/g2": "^4.0.15",
     "antd": "^4.6.4",
     "echarts": "^5.0.0",
     "next": "9.5.3",
     "next-service": "^0.3.0",
     "react": "16.13.1",
+    "react-cookies": "^0.1.1",
     "react-dom": "16.13.1"
   },
-  "proxy": "http://localhost:3000"
+  "proxy": "http://localhost:3000",
+  "devDependencies": {
+    "less": "^4.0.0",
+    "less-loader": "^7.1.0"
+  }
 }

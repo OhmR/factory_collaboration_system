@@ -1,7 +1,8 @@
 import { Menu, Layout, Breadcrumb } from 'antd';
-import React from "react";
+import React, { useEffect } from "react";
 import { MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/router';
+import cookie from 'react-cookies'
 
 const { Item } = Menu;
 const { Item: BreadcrumbItem } = Breadcrumb;
@@ -10,17 +11,22 @@ const { Header, Content, Sider, Footer } = Layout;
 const MainMenu = (props) => {
     const { content } = props;
     const router = useRouter();
+    useEffect(() => {
+        // if 判断条件用于判断是否登录
+        console.info("in useEffect", cookie.load("HFuserinfo"))
+        if (!cookie.load("HFuserinfo")) {
+            router.push("/login")
+        }
+    }, [])
+
     const handleClick = (props) => {
         const { key } = props;
         console.info(props);
         if (key === "home") {
-            router.push("/");
+            router.push("/home");
         } else {
             router.push("/" + key);
         }
-        // if (key === "operate") {
-        //     setVisible(true);
-        // }
     }
 
     return (
