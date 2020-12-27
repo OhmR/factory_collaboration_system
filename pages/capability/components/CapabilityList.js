@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Table, Card, Button, Tag } from 'antd';
 import Link from 'next/link';
-import FinishTask from './FinishTask';
+import UpdateCapability from './UpdateCapability';
 
 const TaskList = (props) => {
     const { data } = props;
@@ -29,34 +29,9 @@ const TaskList = (props) => {
             dataIndex: 'description'
         },
         {
-            title: '接单时间',
+            title: '生产能力',
             align: 'center',
-            dataIndex: 'startDate',
-            render: (startDate) => {
-                console.info(startDate);
-                return <>{new Date(startDate).toDateString()}</>
-            }
-        },
-        {
-            title: '交付时间',
-            align: 'center',
-            dataIndex: 'ddl',
-            render: (ddl) => {
-                console.info(ddl);
-                return <>{new Date(ddl).toDateString()}</>
-            }
-        },
-        {
-            title: '状态',
-            align: 'center',
-            dataIndex: 'state',
-            render: (state) => {
-                console.info(state);
-                const tag = (state === "finish") ? <Tag color="green">已完成</Tag> :
-                    (state === "doing") ? <Tag color="orange">制作中</Tag> :
-                        (state === "failed") ? <Tag color="red">已超时</Tag> : <Tag color="blue">审核中</Tag>;
-                return tag;
-            }
+            dataIndex: 'capability'
         },
         {
             title: '操作',
@@ -66,10 +41,7 @@ const TaskList = (props) => {
                 console.info(e);
                 return (
                     <>
-                        <Button size="small" type="primary" disabled={e.state !== "doing"}>
-                            交付
-                        </Button>
-                        <Button style={{ marginLeft: 10 }} size="small" danger disabled={e.state !== "doing"}>取消</Button>
+                        <Button style={{ marginLeft: 10 }} size="small" danger>删除</Button>
                     </>);
             }
         }
@@ -90,12 +62,14 @@ const TaskList = (props) => {
         <Card
             // style={{ height: "%100" }}
             title={<>任务列表</>}
-        // extra={
-        //     <>
-        //         <FinishTask />
-        //     </>
-        // }>
-        >
+            extra={
+                <>
+                    <UpdateCapability data={tableData} />
+                    <Button type="primary" style={{ marginRight: 10 }}>新增产能</Button>
+                    <Button type="danger" style={{ marginRight: 10 }}>批量删除</Button>
+                </>
+            }>
+
             <Table columns={columns} dataSource={tableData} rowSelection={rowSelelction} />
         </Card >
     )

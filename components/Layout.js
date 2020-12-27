@@ -63,7 +63,10 @@ const MainMenu = (props) => {
                             任务栏
                         </Item>
                         <Item key="state" icon={<MailOutlined />}>
-                            工厂状态
+                            工厂信息
+                        </Item>
+                        <Item key="capability" icon={<MailOutlined />}>
+                            生产状态
                         </Item>
                     </Menu>
                 </Sider>

@@ -2,15 +2,11 @@ import { Button } from 'antd';
 import React, { useState } from "react";
 import BaseForm from "./BaseForm";
 
-const FinishTask = (props) => {
-    console.info("tableref is ", tableRef)
+const UpdateCapability = (props) => {
+    const { data } = props;
     const [visible, setVisible] = useState(false);
-    const handleClick = (props) => {
-        const { key } = props;
-        console.info(props);
-        if (key === "operate") {
-            setVisible(true);
-        }
+    const handleClick = () => {
+        setVisible(true);
     }
 
     const handleOk = () => {
@@ -30,16 +26,17 @@ const FinishTask = (props) => {
                     marginRight: 10
                 }}
             >
-                批量交付
+                修改产能
             </Button>
             <BaseForm
-                title="批量交付"
+                title="修改产能"
                 visible={visible}
                 handleCancel={handleCancel}
                 handleOk={handleOk}
+                data={data}
             />
         </>
     );
 }
 
-export default FinishTask;
+export default UpdateCapability;

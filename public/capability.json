@@ -1,0 +1,28 @@
+{
+    "data": [
+        {
+            "key": 0,
+            "name": "mock_product0",
+            "description": "产品0",
+            "capability": "100"
+        },
+        {
+            "key": 1,
+            "name": "mock_product1",
+            "description": "产品1",
+            "capability": "50"
+        },
+        {
+            "key": 2,
+            "name": "mock_product2",
+            "description": "产品2",
+            "capability": "0"
+        },
+        {
+            "key": 3,
+            "name": "mock_product3",
+            "description": "产品3",
+            "capability": "70"
+        }
+    ]
+}
