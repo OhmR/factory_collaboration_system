@@ -10,55 +10,20 @@ const { Item } = Descriptions;
 
 export default function FactoryState() {
     const [state, setState] = useState([]);
-    // if (process.browser) {
-    //     const chart = new Chart({
-    //         container: "container",
-    //         autoFit: true,
-    //         height: 500,
-    //         padding: [30, 20, 70, 30]
-    //     })
-    // }
     useEffect(() => {
-        console.info('in useEffect');
         fetch("./factoryState.json", {
             method: "GET",
         }).then(e => e.json())
             .then(e => {
-                console.info("json data is ", e.data);
+                // console.info("json data is ", e.data);
                 setState(e.data);
             })
     }, []);
 
-    // useEffect(() => {
-    // console.info("in use effect");
-    // <StateChart date={state.audit} />;
-    // const data = state.audit;
-    // console.info(data);
-    // const chart = new Chart({
-    //     container: "container",
-    //     autoFit: true,
-    //     height: 500,
-    //     padding: [30, 20, 70, 30]
-    // })
-    // chart.data(data);
-    // chart.scale({
-    //     finish: {
-    //         min: 0
-    //     },
-    //     failed: {
-    //         min: 0
-    //     }
-    // });
-    // chart.line().position('date*finish').color('#1890ff');
-    // chart.line().position('date*failed').color('red');
-    // chart.render();
-    // }, [state]);
-
     return (
-        <Layout content={
+        <Layout BreadcrumbName="State" content={
             <Card>
                 <Descriptions layout="vertical" column={1} style={{ textAlign: "center" }}>
-                    {console.info(state)}
                     <Item style={{ paddingBottom: 8 }}>
                         <Avatar size={90} src="./avatar.jpg" />
                     </Item>
@@ -73,7 +38,6 @@ export default function FactoryState() {
                     </Item>
                     {state.credit ?
                         <Item>
-                            {console.info("credit is ", state.credit)}
                             <Rate disabled allowHalf defaultValue={state.credit} />
                         </Item> : null}
                 </Descriptions>

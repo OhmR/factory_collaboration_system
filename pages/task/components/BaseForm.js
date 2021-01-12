@@ -8,26 +8,26 @@ const BaseForm = (props) => {
     const { visible, handleCancel, handleOk, title } = props;
     const [form] = Form.useForm();;
 
-    const onOk = ()=>{
+    const onOk = () => {
         const values = form.getFieldsValue();
-        console.info('values are', values);
+        // console.info('values are', values);
 
         handleOk();
     }
 
     return (
-        <Modal 
-            closable={false} 
-            visible={visible} 
-            onCancel={handleCancel} 
+        <Modal
+            closable={false}
+            visible={visible}
+            onCancel={handleCancel}
             onOk={onOk}>
             <Card title={title}>
                 <Form form={form}>
                     <Item name="name" label="名称" required={true}>
-                        <Input/>
+                        <Input />
                     </Item>
                     <Item name="description" label="描述" required={true}>
-                        <TextArea row={4}/>
+                        <TextArea row={4} />
                     </Item>
                 </Form>
             </Card>

@@ -13,7 +13,6 @@ const TaskList = (props) => {
             align: 'center',
             dataIndex: 'name',
             render: (name) => {
-                console.info(name);
                 return (
                     <div>
                         <Link href={{ pathname: '/basket', query: { name: name } }}>
@@ -38,7 +37,7 @@ const TaskList = (props) => {
             align: 'center',
             dataIndex: '',
             render: (e) => {
-                console.info(e);
+                // console.info(e);
                 return (
                     <>
                         <Button style={{ marginLeft: 10 }} size="small" danger>删除</Button>
@@ -53,7 +52,7 @@ const TaskList = (props) => {
     const rowSelelction = {
         onChange: rowKeys => {
             setselectedRowKeys(rowKeys);
-            console.info(`rowKeys: ${rowKeys}`);
+            // console.info(`rowKeys: ${rowKeys}`);
         },
         selectedRowKeys,
     }

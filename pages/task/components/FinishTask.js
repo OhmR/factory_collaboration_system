@@ -3,11 +3,9 @@ import React, { useState } from "react";
 import BaseForm from "./BaseForm";
 
 const FinishTask = (props) => {
-    console.info("tableref is ", tableRef)
     const [visible, setVisible] = useState(false);
     const handleClick = (props) => {
         const { key } = props;
-        console.info(props);
         if (key === "operate") {
             setVisible(true);
         }

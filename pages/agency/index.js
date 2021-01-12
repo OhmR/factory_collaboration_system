@@ -70,7 +70,7 @@ export default function Chart() {
       tooltip: {
         trigger: 'item',
         triggerOn: 'mousemove',
-        formatter: function (params) {
+        formatter: function(params) {
           data = params.data
           if (data.name === "Order:1")
             return "Product：桌子*2<br>进度：6%"
@@ -91,7 +91,7 @@ export default function Chart() {
           return output
         }
       },
-      series:[
+      series: [
         {
           type: 'tree',
 
@@ -123,9 +123,9 @@ export default function Chart() {
           animationDuration: 550,
           animationDurationUpdate: 750
         }
-      ]}
+      ]
+    }
     chart.setOption(option)
-    console.info("finish echarts");
   }, [])
 
   return (

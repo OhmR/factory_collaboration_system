@@ -13,7 +13,6 @@ const TaskList = (props) => {
             align: 'center',
             dataIndex: 'name',
             render: (name) => {
-                console.info(name);
                 return (
                     <div>
                         <Link href={{ pathname: '/basket', query: { name: name } }}>
@@ -33,7 +32,7 @@ const TaskList = (props) => {
             align: 'center',
             dataIndex: 'startDate',
             render: (startDate) => {
-                console.info(startDate);
+                // console.info(startDate);
                 return <>{new Date(startDate).toDateString()}</>
             }
         },
@@ -42,7 +41,7 @@ const TaskList = (props) => {
             align: 'center',
             dataIndex: 'ddl',
             render: (ddl) => {
-                console.info(ddl);
+                // console.info(ddl);
                 return <>{new Date(ddl).toDateString()}</>
             }
         },
@@ -51,7 +50,7 @@ const TaskList = (props) => {
             align: 'center',
             dataIndex: 'state',
             render: (state) => {
-                console.info(state);
+                // console.info(state);
                 const tag = (state === "finish") ? <Tag color="green">已完成</Tag> :
                     (state === "doing") ? <Tag color="orange">制作中</Tag> :
                         (state === "failed") ? <Tag color="red">已超时</Tag> : <Tag color="blue">审核中</Tag>;
@@ -63,7 +62,7 @@ const TaskList = (props) => {
             align: 'center',
             dataIndex: '',
             render: (e) => {
-                console.info(e);
+                // console.info(e);
                 return (
                     <>
                         <Button size="small" type="primary" disabled={e.state !== "doing"}>
@@ -81,14 +80,13 @@ const TaskList = (props) => {
     const rowSelelction = {
         onChange: rowKeys => {
             setselectedRowKeys(rowKeys);
-            console.info(`rowKeys: ${rowKeys}`);
+            // console.info(`rowKeys: ${rowKeys}`);
         },
         selectedRowKeys,
     }
 
     return (
         <Card
-            // style={{ height: "%100" }}
             title={<>任务列表</>}
         // extra={
         //     <>

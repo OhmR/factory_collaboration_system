@@ -1,6 +1,6 @@
 import { Menu, Layout, Breadcrumb } from 'antd';
 import React, { useEffect } from "react";
-import { MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { BarsOutlined, SettingOutlined, HomeOutlined, ScheduleOutlined, TeamOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/router';
 import cookie from 'react-cookies'
 
@@ -9,11 +9,11 @@ const { Item: BreadcrumbItem } = Breadcrumb;
 const { Header, Content, Sider, Footer } = Layout;
 
 const MainMenu = (props) => {
-    const { content } = props;
+    const { content, BreadcrumbName } = props;
     const router = useRouter();
     useEffect(() => {
         // if 判断条件用于判断是否登录
-        console.info("in useEffect", cookie.load("HFuserinfo"))
+        // console.info("in useEffect", cookie.load("HFuserinfo"))
         if (!cookie.load("HFuserinfo")) {
             router.push("/login")
         }
@@ -21,7 +21,7 @@ const MainMenu = (props) => {
 
     const handleClick = (props) => {
         const { key } = props;
-        console.info(props);
+        // console.info(props);
         if (key === "home") {
             router.push("/home");
         } else {
@@ -43,7 +43,7 @@ const MainMenu = (props) => {
                 //     width: 760
                 // }}
                 >
-                    <Item key="home" icon={<MailOutlined />}>
+                    <Item key="home" icon={<HomeOutlined />}>
                         首页
                     </Item>
                     <Item key="history" icon={<SettingOutlined />}>
@@ -59,21 +59,21 @@ const MainMenu = (props) => {
                         style={{
                             height: '100%',
                         }}>
-                        <Item key="task" icon={<MailOutlined />}>
+                        <Item key="task" icon={<ScheduleOutlined />}>
                             任务栏
                         </Item>
-                        <Item key="state" icon={<MailOutlined />}>
-                            工厂信息
-                        </Item>
-                        <Item key="capability" icon={<MailOutlined />}>
+                        <Item key="capability" icon={<BarsOutlined />}>
                             生产状态
+                        </Item>
+                        <Item key="state" icon={<TeamOutlined />}>
+                            工厂信息
                         </Item>
                     </Menu>
                 </Sider>
                 <Layout style={{ padding: '0 24px 0px' }}>
                     <Breadcrumb style={{ margin: '16px 0' }}>
-                        <BreadcrumbItem>Home</BreadcrumbItem>
-                        <BreadcrumbItem>SecondLevel</BreadcrumbItem>
+                        <BreadcrumbItem href="/home">Home</BreadcrumbItem>
+                        {BreadcrumbName ? <BreadcrumbItem>{BreadcrumbName}</BreadcrumbItem> : null}
                     </Breadcrumb>
                     <Content>
                         {content}
@@ -81,7 +81,7 @@ const MainMenu = (props) => {
                     <Footer style={{ textAlign: 'center' }}>2020 Created by Ohmr</Footer>
                 </Layout>
             </Layout>
-        </Layout>
+        </Layout >
     );
 }
 

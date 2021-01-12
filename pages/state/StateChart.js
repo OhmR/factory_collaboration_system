@@ -8,11 +8,9 @@ const StateChart = (props) => {
         chartRef.current.destroy();
     }
 
-    console.info("data is ", data);
     if (data === undefined) {
         return null;
     }
-    console.info("11");
     const chart = new Chart({
         container: "container",
         autoFit: true,

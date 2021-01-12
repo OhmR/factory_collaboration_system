@@ -6,12 +6,11 @@ const { Item } = Form;
 
 const BaseForm = (props) => {
     const { visible, handleCancel, handleOk, title, data } = props;
-    console.info("data in form", data);
     const [form] = Form.useForm();
 
     const onOk = () => {
         const values = form.getFieldsValue();
-        console.info('values are', values);
+        // console.info('values are', values);
 
         handleOk();
     }
@@ -26,7 +25,7 @@ const BaseForm = (props) => {
                 <Form layout="inline" form={form}>
                     {data.map(element => {
                         return (
-                            <Item name={element.name} label={element.description} required={true}>
+                            <Item style={{ marginBottom: 10 }} name={element.name} label={element.description} required={true}>
                                 <InputNumber defaultValue={element.capability ? element.capability : 0} />
                             </Item>
                         )
