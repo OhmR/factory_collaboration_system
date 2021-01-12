@@ -19,7 +19,11 @@ const NormalLoginForm = (props) => {
                         loginFlag = true;
                         // console.info("currect user");
                         cookie.save("HFuserinfo", value, { path: "/" })
+                        // if (value.name === "admin") {
+                        //     router.push("/agency")
+                        // } else {
                         router.push("/home")
+                        // }
                     }
                 })
                 if (!loginFlag) {

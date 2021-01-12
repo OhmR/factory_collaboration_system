@@ -1,5 +1,5 @@
 import { Menu, Layout, Breadcrumb } from 'antd';
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BarsOutlined, SettingOutlined, HomeOutlined, ScheduleOutlined, TeamOutlined } from '@ant-design/icons';
 import { useRouter } from 'next/router';
 import cookie from 'react-cookies'
@@ -10,12 +10,16 @@ const { Header, Content, Sider, Footer } = Layout;
 
 const MainMenu = (props) => {
     const { content, BreadcrumbName } = props;
+    const [userId, setUserId] = useState("");
     const router = useRouter();
     useEffect(() => {
         // if 判断条件用于判断是否登录
         // console.info("in useEffect", cookie.load("HFuserinfo"))
         if (!cookie.load("HFuserinfo")) {
             router.push("/login")
+        } else {
+
+            setUserId(cookie.load("HFuserinfo").name);
         }
     }, [])
 
@@ -59,15 +63,27 @@ const MainMenu = (props) => {
                         style={{
                             height: '100%',
                         }}>
-                        <Item key="task" icon={<ScheduleOutlined />}>
-                            任务栏
-                        </Item>
-                        <Item key="capability" icon={<BarsOutlined />}>
-                            生产状态
-                        </Item>
-                        <Item key="state" icon={<TeamOutlined />}>
-                            工厂信息
-                        </Item>
+                        {
+                            // console.info("userId", userId)
+                            userId !== "admin" ?
+                                <Item key="task" icon={<ScheduleOutlined />}> 任务栏  </Item> :
+                                null
+                        }
+                        {
+                            userId !== "admin" ?
+                                <Item key="capability" icon={<BarsOutlined />}>生产状态</Item> :
+                                null
+                        }
+                        {
+                            userId !== "admin" ?
+                                <Item key="state" icon={<TeamOutlined />}>工厂信息</Item> :
+                                null
+                        }
+                        {
+                            userId === "admin" ?
+                                <Item key="agency" icon={<BarsOutlined />}>订单状态</Item> :
+                                null
+                        }
                     </Menu>
                 </Sider>
                 <Layout style={{ padding: '0 24px 0px' }}>

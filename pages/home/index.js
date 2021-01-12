@@ -13,12 +13,11 @@ export default function Home() {
 
         <main className={styles.main}>
           <h1 className={styles.title}>
-            Welcome to <a href="https://nextjs.org">Next.js!</a>
+            基于订单的家庭工厂协作系统
           </h1>
 
           <p className={styles.description}>
-            Get started by editing{' '}
-            <code className={styles.code}>pages/index.js</code>
+            由小组12345实现
           </p>
 
           <div className={styles.grid}>
