@@ -3,58 +3,58 @@
         "key": 0,
         "name": "三鹿",
         "description": "从小喝到大的良心企业",
-        "joinDate": "2020-11-30T12:00:00",
+        "joinDate": "2020-09-10T12:00:00",
         "credit": 4.5,
         "audit": [
             {
-                "date": "2020-07",
+                "date": "2020-09",
                 "state": "finish",
                 "num": 30
             },
             {
-                "date": "2020-07",
+                "date": "2020-09",
                 "state": "failed",
                 "num": 1
             },
             {
-                "date": "2020-08",
-                "state": "finish",
-                "num": 66
-            },
-            {
-                "date": "2020-08",
-                "state": "failed",
-                "num": 4
-            },
-            {
-                "date": "2020-09",
+                "date": "2020-10",
                 "state": "finish",
                 "num": 60
             },
             {
-                "date": "2020-09",
+                "date": "2020-10",
+                "state": "failed",
+                "num": 4
+            },
+            {
+                "date": "2020-11",
+                "state": "finish",
+                "num": 63
+            },
+            {
+                "date": "2020-11",
                 "state": "failed",
                 "num": 7
             },
             {
-                "date": "2020-10",
+                "date": "2020-12",
                 "state": "finish",
-                "num": 45
+                "num": 58
             },
             {
-                "date": "2020-10",
+                "date": "2020-12",
                 "state": "failed",
                 "num": 2
             },
             {
-                "date": "2020-11",
+                "date": "2021-01",
                 "state": "finish",
-                "num": 38
+                "num": 28
             },
             {
-                "date": "2020-11",
+                "date": "2021-01",
                 "state": "failed",
-                "num": 4
+                "num": 1
             }
         ]
     }

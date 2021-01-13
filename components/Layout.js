@@ -18,7 +18,6 @@ const MainMenu = (props) => {
         if (!cookie.load("HFuserinfo")) {
             router.push("/login")
         } else {
-
             setUserId(cookie.load("HFuserinfo").name);
         }
     }, [])
@@ -66,12 +65,12 @@ const MainMenu = (props) => {
                         {
                             // console.info("userId", userId)
                             userId !== "admin" ?
-                                <Item key="task" icon={<ScheduleOutlined />}> 任务栏  </Item> :
+                                <Item key="task" icon={<ScheduleOutlined />}>任务列表</Item> :
                                 null
                         }
                         {
                             userId !== "admin" ?
-                                <Item key="capability" icon={<BarsOutlined />}>生产状态</Item> :
+                                <Item key="capability" icon={<BarsOutlined />}>生产能力</Item> :
                                 null
                         }
                         {

@@ -1,27 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { Table, Card, Button, Tag } from 'antd';
-import Link from 'next/link';
-import FinishTask from './FinishTask';
+import { useRouter } from "next/router";
 
-const TaskList = (props) => {
+const OrderList = (props) => {
+    const router = useRouter();
     const { data } = props;
+    console.info('data', data);
     const [tableData, setTableData] = useState([]);
     const [selectedRowKeys, setselectedRowKeys] = useState([]);
     const columns = [
-        {
-            title: '名称',
-            align: 'center',
-            dataIndex: 'name',
-            render: (name) => {
-                return (
-                    <div>
-                        <Link href={{ pathname: '/basket', query: { name: name } }}>
-                            <a>{name}</a>
-                        </Link>
-                    </div>
-                )
-            }
-        },
         {
             title: '描述',
             align: 'center',
@@ -46,6 +33,15 @@ const TaskList = (props) => {
             }
         },
         {
+            title: '预计完成时间',
+            align: 'center',
+            dataIndex: 'predictDate',
+            render: (predictDate) => {
+                // console.info(ddl);
+                return <>{new Date(predictDate).toDateString()}</>
+            }
+        },
+        {
             title: '状态',
             align: 'center',
             dataIndex: 'state',
@@ -65,20 +61,13 @@ const TaskList = (props) => {
                 // console.info(e);
                 return (
                     <>
-                        <Button size="small" type="primary" disabled={e.state !== "doing"} onClick={() => {
-                            const newData = data;
-                            newData[0].state = "auditing";
-                            setTableData([...newData]);
-                            console.info(tableData);
-                        }}>
-                            交付
-                        </Button>
-                        <Button style={{ marginLeft: 10 }} size="small" danger disabled={e.state !== "doing"}>取消</Button>
+                        <Button size="small" type="primary" disabled={e.state !== "doing"} onClick={() => { router.push("/agency/orderTree") }}>
+                            进度查询
+                    </Button>
                     </>);
             }
         }
     ];
-
     useEffect(() => {
         setTableData(data);
     }, [data])
@@ -92,17 +81,10 @@ const TaskList = (props) => {
     }
 
     return (
-        <Card
-            title={<>任务列表</>}
-        // extra={
-        //     <>
-        //         <FinishTask />
-        //     </>
-        // }>
-        >
-            <Table columns={columns} dataSource={tableData} rowSelection={rowSelelction} />
+        <Card title={<>任务列表</>} >
+            {tableData.length !== 0 ? <Table columns={columns} dataSource={tableData} rowSelection={rowSelelction} /> : null}
         </Card >
     )
 }
 
-export default TaskList;
+export default OrderList;

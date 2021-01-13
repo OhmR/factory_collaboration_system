@@ -5,7 +5,7 @@ import UpdateCapability from './UpdateCapability';
 
 const TaskList = (props) => {
     const { data } = props;
-    const [tableData, setTableData] = useState([...data]);
+    const [tableData, setTableData] = useState([]);
     const [selectedRowKeys, setselectedRowKeys] = useState([]);
     const columns = [
         {

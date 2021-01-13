@@ -91,7 +91,7 @@ export default function Chart(props) {
           if (params.data.percentage === 0)
             output += "进度：前驱任务尚未完成，未开始分配"
           else {
-            output += "无前驱任务，已经分配" + "<br>" + "当前进度：30%" + "<br>"
+            output += "无前驱任务，已经分配" + "<br>" + "当前进度：60%" + "<br>"
             if (params.data.subTask) {
               for (let i = 0; i < params.data.subTask.length; i++) {
                 output += "工厂id：" + params.data.subTask[i].FactoryId + "<br>" + "任务数量：" + params.data.subTask[i].num + "<br>" + "工厂进度：" + params.data.subTask[i].process + "<br>"

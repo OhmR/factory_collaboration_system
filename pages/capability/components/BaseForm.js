@@ -23,13 +23,13 @@ const BaseForm = (props) => {
             onOk={onOk}>
             <Card title={title}>
                 <Form layout="inline" form={form}>
-                    {data.map(element => {
+                    {data ? data.map(element => {
                         return (
                             <Item style={{ marginBottom: 10 }} name={element.name} label={element.description} required={true}>
                                 <InputNumber defaultValue={element.capability ? element.capability : 0} />
                             </Item>
                         )
-                    })}
+                    }) : null}
                 </Form>
             </Card>
         </Modal>

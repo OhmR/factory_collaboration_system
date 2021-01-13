@@ -3,16 +3,16 @@ import { Card, Descriptions, Avatar, Rate } from 'antd';
 import cookie from "react-cookies";
 import LoginForm from "./components/LoginForm"
 
-export default () => {
+const Login = () => {
     return (
         <div>
             <div style={{
                 // display: 'inline-block',
                 height: "100vh",
-                filter: "blur(5px)",
+                filter: "blur(3px)",
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
-                backgroundImage: "url(./avatar.jpg)"
+                backgroundImage: "url(./background.jpg)"
             }} />
             <Card
                 style={{
@@ -28,3 +28,5 @@ export default () => {
         </div >
     )
 }
+
+export default Login;

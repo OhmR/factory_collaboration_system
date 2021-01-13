@@ -2,26 +2,26 @@
     "data": [
         {
             "key": 0,
-            "name": "mock_product0",
-            "description": "产品0",
-            "capability": "100"
+            "name": "桌板",
+            "description": "桌板",
+            "capability": "5"
         },
         {
             "key": 1,
-            "name": "mock_product1",
-            "description": "产品1",
+            "name": "螺丝",
+            "description": "螺丝",
             "capability": "50"
         },
         {
             "key": 2,
-            "name": "mock_product2",
-            "description": "产品2",
-            "capability": "0"
+            "name": "火柴盒",
+            "description": "火柴盒",
+            "capability": "60"
         },
         {
             "key": 3,
-            "name": "mock_product3",
-            "description": "产品3",
+            "name": "纱布",
+            "description": "纱布",
             "capability": "70"
         }
     ]
