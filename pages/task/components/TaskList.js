@@ -9,7 +9,7 @@ const TaskList = (props) => {
     const [selectedRowKeys, setselectedRowKeys] = useState([]);
     const columns = [
         {
-            title: '名称',
+            title: '任务名',
             align: 'center',
             dataIndex: 'name',
             render: (name) => {
@@ -21,6 +21,11 @@ const TaskList = (props) => {
                     </div>
                 )
             }
+        },
+        {
+            title: '数量',
+            align: 'center',
+            dataIndex: 'num'
         },
         {
             title: '描述',
